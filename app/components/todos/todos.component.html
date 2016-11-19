@@ -7,9 +7,9 @@
             <span class="input-group-btn">
                 <button id="addTaskBtn" class="btn btn-default" (click)="addTodo(todoTitle.value); todoTitle.value = ''">ADD</button>
             </span>
-        </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+        </div>
+    </div>
+</div>
 <br>
 <div class="row">
     <div class="col-lg-6">
@@ -19,9 +19,9 @@
                [class.active]="todo === selectedTodo"
                (click)="setSelected(todo)">
 
-                <input type="checkbox">
+                <input type="checkbox" [(ngModel)]="todo.completed">
                 <span>{{ todo.title }}</span>
-                <button type="button" class="close close-btn" data-dismiss="alert" aria-label="Close"
+                <button class="close close-btn" data-dismiss="alert" aria-label="Close"
                         (click)="deleteTodo(todo)">
                     <span aria-hidden="true">&times;</span>
                 </button>
