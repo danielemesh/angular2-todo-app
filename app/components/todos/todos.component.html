@@ -1,10 +1,12 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="What todo?" autofocus #todoTitle>
+            <input class="form-control" placeholder="What todo?" autofocus
+                   #todoTitle
+                   (keyup.enter)="addTodo(todoTitle.value); todoTitle.value = ''">
             <span class="input-group-btn">
-                    <button id="addTaskBtn" class="btn btn-default" (click)="addTodo(todoTitle.value); todoTitle.value = ''">ADD</button>
-                </span>
+                <button id="addTaskBtn" class="btn btn-default" (click)="addTodo(todoTitle.value); todoTitle.value = ''">ADD</button>
+            </span>
         </div><!-- /input-group -->
     </div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
@@ -17,7 +19,7 @@
                [class.active]="todo === selectedTodo"
                (click)="setSelected(todo)">
 
-                <input type="checkbox"/>
+                <input type="checkbox">
                 <span>{{ todo.title }}</span>
                 <button type="button" class="close close-btn" data-dismiss="alert" aria-label="Close"
                         (click)="deleteTodo(todo)">
