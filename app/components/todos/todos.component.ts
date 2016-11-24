@@ -6,7 +6,8 @@ import { TodosService } from "./todos.service";
     selector   : "todos",
     moduleId   : module.id,
     templateUrl: "./todos.component.html",
-    providers: [ TodosService ]
+    providers: [ TodosService ],
+    styleUrls: [ "./todos.component.css" ]
 })
 
 export class TodosComponent {

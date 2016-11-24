@@ -1,13 +1,14 @@
-<p class="todo-id">
-    <label>ID:&nbsp;</label>
-    {{ todo.id }}
-</p>
-<p class="todo-title">
-    <label>Title:&nbsp;</label>
-    <input [(ngModel)]="todo.title"/>
-
-</p>
-<p class="todo-description">
-    <label>Description:&nbsp;</label>
-    <input [(ngModel)]="todo.description" />
-</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <td><label>ID:&nbsp;</label></td>
+        <td>{{ todo.id }}</td>
+    </tr>
+    <tr>
+        <td><label>Title:&nbsp;</label></td>
+        <td><input [(ngModel)]="todo.title"/></td>
+    </tr>
+    <tr>
+        <td><label>Description:&nbsp;</label></td>
+        <td><input [(ngModel)]="todo.description"/></td>
+    </tr>
+</table>

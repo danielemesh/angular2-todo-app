@@ -5,7 +5,8 @@
                    #todoTitle
                    (keyup.enter)="addTodo(todoTitle.value); todoTitle.value = ''">
             <span class="input-group-btn">
-                <button id="addTaskBtn" class="btn btn-default" (click)="addTodo(todoTitle.value); todoTitle.value = ''">ADD</button>
+                <button id="addTaskBtn" class="btn btn-default"
+                        (click)="addTodo(todoTitle.value); todoTitle.value = ''">ADD</button>
             </span>
         </div>
     </div>
@@ -14,19 +15,28 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="list-group">
-            <a href="#" class="list-group-item"
-               *ngFor="let todo of todos"
-               [class.active]="todo === selectedTodo"
-               (click)="setSelected(todo)">
+            <div class="clearfix list-group-item clickable"
+                 *ngFor="let todo of todos"
+                 [class.active]="todo === selectedTodo"
+                 (click)="setSelected(todo)">
 
-                <input type="checkbox" [(ngModel)]="todo.completed">
-                <span>{{ todo.title }}</span>
-                <button class="close close-btn" data-dismiss="alert" aria-label="Close"
-                        (click)="deleteTodo(todo)">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div class="col-xs-1">
+                    <input type="checkbox" [(ngModel)]="todo.completed">
+                </div>
 
-            </a>
+                <div class="col-xs-10">
+                    <h4 class="list-group-item-heading">{{ todo.title }}</h4>
+                    <p *ngIf="todo === selectedTodo" class="list-item-group-text">{{ todo.description }}</p>
+                </div>
+
+                <div class="col-xs-1">
+                    <button class="close close-btn" data-dismiss="alert" aria-label="Close"
+                            (click)="deleteTodo(todo)">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            </div>
         </div>
     </div>
     <div *ngIf="selectedTodo" class="col-lg-6">
