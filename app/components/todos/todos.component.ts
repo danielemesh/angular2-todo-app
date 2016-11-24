@@ -34,6 +34,10 @@ export class TodosComponent {
     }
 
     deleteTodo(todo: Todo) {
+        if (todo === this.selectedTodo) {
+            this.selectedTodo = null;
+        }
+
         this.todos = this.todos.filter(item => {
             return item.id !== todo.id;
         });
